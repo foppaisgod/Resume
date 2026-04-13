@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devendra Natekar — Executive Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:  #0D1B2A;
+    --ink:   #1A2535;
+    --blue:  #1E5EAA;
+    --sky:   #4A9FE0;
+    --gold:  #C9973A;
+    --cream: #F7F4EE;
+    --mist:  #EAEff7;
+    --card:  #FFFFFF;
+    --text:  #1A2535;
+    --mid:   #4A5568;
+    --light: #8896AB;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 30px;
+    line-height: 1.65;
+  }
+
+  /* ── HERO ─────────────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    padding: 80px 0 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'DN';
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'DM Serif Display', serif;
+    font-size: 280px;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .hero-inner { max-width: 900px; margin: 0 auto; padding: 0 60px; }
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--sky);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 68px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-tag {
+    font-size: 17px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    border-left: 3px solid var(--gold);
+    padding-left: 18px;
+    margin: 28px 0 36px;
+    line-height: 1.6;
+    max-width: 560px;
+  }
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+  }
+  .contact-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.06em;
+    text-decoration: none;
+  }
+  a.contact-item {
+    color: rgba(255,255,255,0.55);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(201,151,58,0.4);
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  a.contact-item:hover { color: var(--gold); }
+  .contact-dot { color: var(--gold); margin: 0 4px; }
+
+  /* ── NAV BAR ──────────────────────────────────── */
+  .nav {
+    background: var(--blue);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  }
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    padding: 14px 20px;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .nav a:hover { color: #fff; border-bottom-color: var(--gold); }
+
+  /* ── PAGE ─────────────────────────────────────── */
+  .page { max-width: 900px; margin: 0 auto; padding: 0 60px 80px; }
+
+  /* ── SECTION ──────────────────────────────────── */
+  .section { padding-top: 64px; }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .section-num { display: none; }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.1;
+    flex: 1;
+    border-bottom: 2px solid var(--mist);
+    padding-bottom: 10px;
+  }
+  .section-title span {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 4px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /* ── METRICS GRID ─────────────────────────────── */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .metric {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 22px 16px 18px;
+    text-align: center;
+  }
+  .metric-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .metric-lbl {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.42);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* ── ROLE BLOCK ───────────────────────────────── */
+  .role {
+    background: var(--card);
+    border-radius: 14px;
+    border: 1px solid rgba(30,94,170,0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .role-header {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a2d45 100%);
+    padding: 22px 28px 18px;
+  }
+  .role-co {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--sky);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .role-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .role-dates {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    font-family: 'DM Mono', monospace;
+  }
+  .role-body { padding: 22px 28px; }
+  .role-intro {
+    font-size: 13.5px;
+    color: var(--mid);
+    font-style: italic;
+    border-left: 3px solid var(--gold);
+    padding-left: 14px;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .role-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .role-body li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.55;
+    border-bottom: 1px solid var(--mist);
+    color: var(--text);
+  }
+  .role-body li:last-child { border-bottom: none; }
+  .role-body li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 11px;
+    top: 8px;
+  }
+  .role-body li strong { color: var(--navy); font-weight: 700; }
+
+  /* ── HIGHLIGHT BOX ────────────────────────────── */
+  .highlight {
+    background: var(--mist);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  .highlight strong { color: var(--blue); }
+
+  /* ── TWO COL ──────────────────────────────────── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  /* ── CAPS GRID ────────────────────────────────── */
+  .caps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .cap {
+    background: var(--card);
+    border: 1px solid rgba(30,94,170,0.1);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .cap::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+
+  /* ── TAGS ─────────────────────────────────────── */
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    background: var(--mist);
+    border: 1px solid rgba(30,94,170,0.15);
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 12.5px;
+    color: var(--blue);
+    font-weight: 500;
+  }
+
+  /* ── TIMELINE (career) ───────────────────────── */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--mist);
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 22px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -23px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+  }
+  .tl-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--light);
+    text-align: right;
+    padding-top: 1px;
+    line-height: 1.4;
+  }
+  .tl-co { font-weight: 700; color: var(--navy); font-size: 14.5px; }
+  .tl-role { font-size: 12.5px; color: var(--mid); margin-top: 1px; }
+
+  /* ── EDU ──────────────────────────────────────── */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .edu-card {
+    background: var(--card);
+    border: 1px solid rgba(30,94,170,0.1);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .edu-school {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 4px;
+  }
+  .edu-deg { font-weight: 700; color: var(--navy); font-size: 14px; margin-bottom: 3px; }
+  .edu-note { font-size: 12px; color: var(--light); }
+
+  /* ── FOOTER ───────────────────────────────────── */
+  .footer {
+    background: var(--navy);
+    padding: 48px 60px;
+    text-align: center;
+  }
+  .footer h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .footer h2 em { color: var(--gold); font-style: italic; }
+  .footer p { color: rgba(255,255,255,0.45); font-size: 14px; margin-top: 8px; }
+  .footer .contact-row { justify-content: center; margin-top: 24px; }
+
+  /* ── RESPONSIVE ───────────────────────────────── */
+  @media (max-width: 680px) {
+    .hero { padding: 52px 0 48px; }
+    .hero-inner, .page, .footer { padding-left: 24px; padding-right: 24px; }
+    .nav-inner { padding: 0 24px; }
+    .hero h1 { font-size: 44px; }
+    .metrics { grid-template-columns: repeat(2,1fr); }
+    .caps-grid { grid-template-columns: 1fr 1fr; }
+    .two-col, .edu-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ───────────────────────────────────────────────────── -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Executive Profile · Product &amp; Platform Leadership</div>
+    <h1>Devendra<br><em>Natekar</em></h1>
+    <div class="hero-tag">
+      Enterprise Product, Platform &amp; Transformation Leader<br>
+      20+ years · Financial Services · Healthcare · Education · SaaS
+    </div>
+    <div class="contact-row">
+      <span class="contact-item">🇺🇸 US Citizen</span>
+      <span class="contact-dot">·</span>
+      <a class="contact-item" href="tel:+12017809862">201-780-9862</a>
+      <span class="contact-dot">·</span>
+      <a class="contact-item" href="mailto:devennatekar@hotmail.com">devennatekar@hotmail.com</a>
+      <span class="contact-dot">·</span>
+      <a class="contact-item" href="https://www.linkedin.com/in/devendranatekar/">linkedin.com/in/devendranatekar</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── NAV ────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a onclick="document.getElementById('impact').scrollIntoView({behavior:'smooth'});return false;">Impact</a>
+    <a onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'});return false;">Experience</a>
+    <a onclick="document.getElementById('capabilities').scrollIntoView({behavior:'smooth'});return false;">Capabilities</a>
+    <a onclick="document.getElementById('timeline').scrollIntoView({behavior:'smooth'});return false;">Timeline</a>
+    <a onclick="document.getElementById('education').scrollIntoView({behavior:'smooth'});return false;">Education</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- ── IMPACT ──────────────────────────────────────────────── -->
+  <section class="section" id="impact">
+    <div class="section-head">
+      <div class="section-num">01</div>
+      <h2 class="section-title"><span>Results</span>Impact by the Numbers</h2>
+    </div>
+
+    <style>
+      .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .impact-col {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .impact-co-label {
+        font-family: 'DM Mono', monospace;
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--sky);
+        padding: 0 4px 9px;
+        border-bottom: 2px solid var(--gold);
+        margin-bottom: 2px;
+      }
+      .metric-sm {
+        background: var(--navy);
+        border-radius: 10px;
+        padding: 18px 14px 14px;
+        text-align: center;
+        flex: 1;
+      }
+      .metric-sm .metric-val {
+        font-family: 'DM Serif Display', serif;
+        font-size: 36px;
+        color: var(--gold);
+        display: block;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .metric-sm .metric-lbl {
+        font-family: 'DM Mono', monospace;
+        font-size: 13px;
+        color: rgba(255,255,255,0.52);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        line-height: 1.45;
+      }
+      @media (max-width: 680px) { .impact-grid { grid-template-columns: repeat(2,1fr); } }
+    </style>
+
+    <div class="impact-grid">
+
+      <!-- Capital One (Current) -->
+      <div class="impact-col">
+        <div class="impact-co-label">Capital One · 2022–Now</div>
+        <div class="metric-sm"><span class="metric-val">+33</span><span class="metric-lbl">NPS Points</span></div>
+        <div class="metric-sm"><span class="metric-val">60%+</span><span class="metric-lbl">Delivery Speed (SDUI)</span></div>
+        <div class="metric-sm"><span class="metric-val">−20%</span><span class="metric-lbl">Dev Cost</span></div>
+        <div class="metric-sm"><span class="metric-val">~80%</span><span class="metric-lbl">AI Speed-to-Market</span></div>
+        <div class="metric-sm"><span class="metric-val">3,500+</span><span class="metric-lbl">Associates Trained</span></div>
+      </div>
+
+      <!-- Walden University -->
+      <div class="impact-col">
+        <div class="impact-co-label">Walden University · 2018–21</div>
+        <div class="metric-sm"><span class="metric-val">+200</span><span class="metric-lbl">Basis Points Retention</span></div>
+        <div class="metric-sm"><span class="metric-val">−17%</span><span class="metric-lbl">Cost-to-Serve</span></div>
+        <div class="metric-sm"><span class="metric-val">+5%</span><span class="metric-lbl">Student Acquisition</span></div>
+        <div class="metric-sm"><span class="metric-val">2×</span><span class="metric-lbl">Portal Engagement</span></div>
+        <div class="metric-sm"><span class="metric-val">20%+</span><span class="metric-lbl">RPA Efficiency Gain</span></div>
+      </div>
+
+      <!-- Capital One (Cards) -->
+      <div class="impact-col">
+        <div class="impact-co-label">Capital One · 2012–15</div>
+        <div class="metric-sm"><span class="metric-val">$30M</span><span class="metric-lbl">Annual Savings</span></div>
+        <div class="metric-sm"><span class="metric-val">$72M</span><span class="metric-lbl">Run-Rate Savings<br>(HSBC Acquisition)</span></div>
+        <div class="metric-sm"><span class="metric-val">$250M+</span><span class="metric-lbl">5-Year Cumulative Savings</span></div>
+      </div>
+
+      <!-- Medtronic -->
+      <div class="impact-col">
+        <div class="impact-co-label">Medtronic · 2021–22</div>
+        <div class="metric-sm"><span class="metric-val">3</span><span class="metric-lbl">Global Regions<br>Americas · EMEA · ANZ</span></div>
+        <div class="metric-sm"><span class="metric-val">3yr</span><span class="metric-lbl">Digital Roadmap<br>CXO/CFO Sponsored</span></div>
+        <div class="metric-sm"><span class="metric-val">0→1</span><span class="metric-lbl">Global Product Org<br>Built from Scratch</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ───────────────────────────────────────────── -->
+  <section class="section" id="experience">
+    <div class="section-head">
+      <div class="section-num">02</div>
+      <h2 class="section-title"><span>Career</span>Professional Experience</h2>
+    </div>
+
+    <!-- Capital One Current -->
+    <div class="role">
+      <div class="role-header">
+        <div class="role-co">Capital One</div>
+        <div class="role-title">Director, CX Platform &amp; Design System</div>
+        <div class="role-dates">Aug 2022 – Present &nbsp;·&nbsp; 40+ PMs, Designers &amp; Engineers &nbsp;·&nbsp; Multi-million $ portfolio</div>
+      </div>
+      <div class="role-body">
+        <div class="role-intro">Recruited to build and scale enterprise platform capabilities powering Capital One's mobile and web experiences, while establishing a unified design system and AI-enabled product development practices.</div>
+        <ul>
+          <li><strong>Delivered NPS +33%, 44% faster time-to-market, and 20% reduction in development cost</strong> by leading end-to-end mobile app and web platform strategy across a 40+ person cross-functional team.</li>
+          <li><strong>Led Server-Driven UI (SDUI) from 0-to-1</strong> — decoupled content and UI logic from the app release cycle enabling real-time personalized surface updates without app store dependency; delivered 60%+ feature delivery acceleration and 50% engineering capacity efficiency.</li>
+          <li><strong>Built a market-leading experimentation and personalization platform</strong>, accelerating A/B and multivariate test velocity by 60%+, improving CTR and maximizing digital ROI across Home, Shopping, Travel, and Offers.</li>
+          <li><strong>Championed AI-enabled spec-driven development</strong> — integrated PDLC with SDLC through AI-assisted workflows; demonstrated ~80% speed-to-market improvement and 30% effort reduction on pilots.</li>
+          <li><strong>Transformed the enterprise design system into an "Intelligent Design OS"</strong> — evolved from a reactive component library to an AI-ready platform; showcased Figma-to-code PoCs at EVP level and secured executive buy-in.</li>
+          <li><strong>Appointed to Capital One's AI Council</strong> — represented the product organization as thought leader, partnering with executives on GenAI toolchain adoption and enterprise change management strategy.</li>
+          <li><strong>Established platform-wide product operations</strong> (OKRs, roadmaps, ops reviews, QBRs, MBRs), reducing decision latency by ~80%.</li>
+          <li><strong>Built organizational capability</strong> through 15+ training programs reaching 3,500+ associates; recognized as MVP contributor to Capital One's Product College.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Medtronic -->
+    <div class="role">
+      <div class="role-header">
+        <div class="role-co">Medtronic (Diabetes Division)</div>
+        <div class="role-title">Director, Digital Experiences &amp; Platforms</div>
+        <div class="role-dates">May 2021 – May 2022 &nbsp;·&nbsp; Americas · EMEA · ANZ</div>
+      </div>
+      <div class="role-body">
+        <div class="role-intro">Engaged to accelerate global digital transformation across the Diabetes business during a critical growth and modernization phase — accountable for platform strategy, team building, and cross-functional delivery across three international regions.</div>
+        <ul>
+          <li><strong>Built a global digital product and operations organization from the ground up</strong>, establishing headcount, governance structures, and operating cadences across Americas, EMEA, and ANZ.</li>
+          <li><strong>Owned a CXO/CFO-sponsored digital capability assessment</strong>, producing a 3-year people, process, technology, and investment roadmap aligned to executive priorities.</li>
+          <li><strong>Led go-to-market execution for a Digital-First patient self-service portal</strong> (iOS, Android, web) — improving patient access to device management and care coordination.</li>
+          <li><strong>Delivered global patient and HCP learning experiences</strong> across US, ANZ, and LATAM — managing cross-functional teams spanning product, engineering, legal, compliance, and operations.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Walden -->
+    <div class="role">
+      <div class="role-header">
+        <div class="role-co">Walden University</div>
+        <div class="role-title">Executive Director, Platform &amp; Digital Product Management</div>
+        <div class="role-dates">Jun 2018 – May 2021 &nbsp;·&nbsp; 50,000+ students &nbsp;·&nbsp; Full P&amp;L accountability</div>
+      </div>
+      <div class="role-body">
+        <div class="role-intro">Hired by the Chief Strategy &amp; Technology Officer to modernize the end-to-end digital experience for 50,000+ students and faculty, and lead the organization's transition to a SaaS-style product operating model.</div>
+        <ul>
+          <li><strong>Pitched and led "Digital First" transformation</strong> — built business case, aligned executive sponsors, led change management; delivered +200 bps retention, −17% cost-to-serve, +5% acquisition.</li>
+          <li><strong>Architected a personalization and recommendation system</strong> using ML-based behavioral modeling, MQL/SQL lead scoring, and retention risk signals — driving 2X student portal engagement.</li>
+          <li><strong>Launched an AI-powered async learning coach in partnership with Google</strong>, improving course completion rates, pass rates, and student satisfaction scores.</li>
+          <li><strong>Deployed ML-based proactive omni-channel outreach</strong> across prospect and student journeys, directly improving conversion and retention KPIs.</li>
+          <li><strong>Led enterprise platform implementations</strong> — Salesforce Lightning &amp; Einstein, Marketo, Adobe Experience Manager, Brightspace LMS, and conversational AI — on time and within budget.</li>
+          <li><strong>Integrated RPA across back-office operations</strong>, delivering 20%+ efficiency gains through data-identified process automation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- AARP -->
+    <div class="role">
+      <div class="role-header">
+        <div class="role-co">AARP Services, Inc.</div>
+        <div class="role-title">Director, Product Management &amp; Innovation</div>
+        <div class="role-dates">Oct 2015 – Jun 2018 &nbsp;·&nbsp; 38M+ members</div>
+      </div>
+      <div class="role-body">
+        <div class="role-intro">Established and led a 0-to-1 product innovation function within the Strategy organization, focused on technology-enabled aging and healthcare experiences.</div>
+        <ul>
+          <li><strong>Founded AARP's product innovation practice from a blank page</strong> — design sprints, user research, rapid prototyping, and pilot activation frameworks.</li>
+          <li><strong>Led the openIDEO "Caregiving for Dementia" challenge</strong> in partnership with UnitedHealth Group — cross-sector innovation generating validated care concepts.</li>
+          <li><strong>Drove Advance Care Planning innovation</strong> via AARP's Innovation Value Fund — IC case through pilot deployment and roadmap creation.</li>
+          <li><strong>Facilitated executive workshops</strong> and presented innovation roadmaps to senior leadership, translating complex challenges into funded, actionable product strategies.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Capital One Sr Mgr -->
+    <div class="role">
+      <div class="role-header">
+        <div class="role-co">Capital One</div>
+        <div class="role-title">Senior Manager, Product Management</div>
+        <div class="role-dates">Mar 2012 – Oct 2015 &nbsp;·&nbsp; US Credit Card Business</div>
+      </div>
+      <div class="role-body">
+        <ul>
+          <li>Delivered <strong>~$30M in annualized savings</strong> through digital CX transformation using funnel analytics, session data, and experimentation.</li>
+          <li>Led post-acquisition integration for the HSBC card portfolio — delivering <strong>$72M run-rate savings and ~$250M in five-year cumulative savings</strong>.</li>
+          <li>Co-developed the enterprise CX vision <strong>"Jumping the S-Curve for Customer Experience"</strong> — storytelling artifacts and roadmap that aligned Card executives around a shared omni-channel strategy.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Additional -->
+    <div class="role">
+      <div class="role-header" style="background: linear-gradient(135deg, #2a3a4a 0%, #1a2535 100%);">
+        <div class="role-co">Additional Experience</div>
+        <div class="role-title">Other Roles</div>
+        <div class="role-dates">Prior to 2018</div>
+      </div>
+      <div class="role-body">
+        <ul>
+          <li><strong>Director, Agile &amp; Technical Program Management — Arc XP (Washington Post)</strong> (Feb 2022 – Aug 2022) — Led Agile delivery practice for Arc XP's cloud-based digital publishing platform serving 1,000+ global media clients.</li>
+          <li><strong>Strategy Associate — Booz &amp; Company</strong> — Enterprise strategy and digital transformation for Fortune 500 clients across healthcare, financial services, and industrial sectors.</li>
+          <li><strong>Technical Program Manager — Intel Corporation</strong> — Cross-geography hardware and software program delivery within Intel's semiconductor division.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CAPABILITIES ─────────────────────────────────────────── -->
+  <section class="section" id="capabilities">
+    <div class="section-head">
+      <div class="section-num">03</div>
+      <h2 class="section-title"><span>Skills</span>Core Capabilities</h2>
+    </div>
+
+    <div class="caps-grid">
+      <div class="cap">Enterprise Product &amp; Platform Strategy</div>
+      <div class="cap">AI-Enabled Product Development (GenAI, Spec-Driven)</div>
+      <div class="cap">Consumer Mobile &amp; Web (iOS / Android)</div>
+      <div class="cap">Server-Driven UI &amp; Hybrid Architecture</div>
+      <div class="cap">Personalization &amp; ML Recommendation Systems</div>
+      <div class="cap">Experimentation &amp; A/B Testing at Scale</div>
+      <div class="cap">Digital Transformation &amp; Operating Model Design</div>
+      <div class="cap">Product Operations (OKRs, Roadmaps, Agile PMO)</div>
+      <div class="cap">Executive Storytelling &amp; Keynote Delivery</div>
+      <div class="cap">Go-to-Market Strategy &amp; Growth Experimentation</div>
+      <div class="cap">Global Team Building &amp; Org Scaling</div>
+      <div class="cap">Cross-Functional Leadership (Product · Eng · Design · Legal)</div>
+      <div class="cap">P&amp;L Ownership &amp; Budget Management</div>
+      <div class="cap">Customer &amp; Developer Experience (CX / DevEx)</div>
+      <div class="cap">SaaS Platform &amp; Portfolio Strategy</div>
+    </div>
+
+    <div style="margin-top: 8px; margin-bottom: 6px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sky);">Tools</div>
+    <div class="tags">
+      <span class="tag">Figma</span><span class="tag">Figma Make</span><span class="tag">CodeConnect</span>
+      <span class="tag">Claude</span><span class="tag">Cursor</span><span class="tag">Gemini</span>
+      <span class="tag">Codex</span><span class="tag">JIRA</span><span class="tag">GitHub</span>
+      <span class="tag">Salesforce</span><span class="tag">Adobe Experience Manager</span>
+      <span class="tag">Adobe Analytics</span><span class="tag">Marketo</span><span class="tag">Obsidian</span>
+    </div>
+  </section>
+
+  <!-- ── TIMELINE ─────────────────────────────────────────────── -->
+  <section class="section" id="timeline">
+    <div class="section-head">
+      <div class="section-num">04</div>
+      <h2 class="section-title"><span>History</span>Career Timeline</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2022 – Now</div>
+        <div><div class="tl-co">Capital One</div><div class="tl-role">Director, CX Platform &amp; Design System</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Feb–Aug 2022</div>
+        <div><div class="tl-co">Arc XP (Washington Post)</div><div class="tl-role">Director, Agile &amp; Technical Program Management</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2021–2022</div>
+        <div><div class="tl-co">Medtronic (Diabetes Division)</div><div class="tl-role">Director, Digital Experiences &amp; Platforms</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2018–2021</div>
+        <div><div class="tl-co">Walden University</div><div class="tl-role">Executive Director, Platform &amp; Digital Product Management</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2015–2018</div>
+        <div><div class="tl-co">AARP Services, Inc.</div><div class="tl-role">Director, Product Management &amp; Innovation</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2012–2015</div>
+        <div><div class="tl-co">Capital One</div><div class="tl-role">Senior Manager, Product Management</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">Earlier</div>
+        <div><div class="tl-co">Booz &amp; Company · Intel Corporation</div><div class="tl-role">Strategy Associate · Technical Program Manager</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ────────────────────────────────────────────── -->
+  <section class="section" id="education">
+    <div class="section-head">
+      <div class="section-num">05</div>
+      <h2 class="section-title"><span>Academic</span>Education</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card" style="border-left: 4px solid var(--gold);">
+        <div class="edu-school">INSEAD · Fontainebleau, France</div>
+        <div class="edu-deg">MBA, General Management</div>
+        <div class="edu-note">Top 5 Global MBA</div>
+      </div>
+      <div class="edu-card" style="border-left: 4px solid var(--sky);">
+        <div class="edu-school">University of Colorado, Boulder</div>
+        <div class="edu-deg">PhD, Mechanical Engineering</div>
+        <div class="edu-note">+ MS, Mechanical Engineering</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-school">University of Pune, India</div>
+        <div class="edu-deg">BS, Mechanical Engineering</div>
+        <div class="edu-note">Foundation in systems thinking &amp; analytical rigor</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-school">Professional Development</div>
+        <div class="edu-deg">Capital One Product College</div>
+        <div class="edu-note">MVP Contributor · 15+ programs · 3,500+ associates</div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page -->
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer class="footer">
+  <h2>The Right <em>Next Role</em></h2>
+  <p>VP / Director of Product &nbsp;·&nbsp; Digital Transformation Leadership &nbsp;·&nbsp; Head of Product<br>Technical Product Director &nbsp;·&nbsp; Chief of Staff &nbsp;·&nbsp; Product Evangelism &amp; Advocacy</p>
+  <div class="contact-row">
+    <a class="contact-item" href="tel:+12017809862">201-780-9862</a>
+    <span class="contact-dot">·</span>
+    <a class="contact-item" href="mailto:devennatekar@hotmail.com">devennatekar@hotmail.com</a>
+    <span class="contact-dot">·</span>
+    <a class="contact-item" href="https://www.linkedin.com/in/devendranatekar/">linkedin.com/in/devendranatekar</a>
+  </div>
+</footer>
+
+</body>
+</html>
